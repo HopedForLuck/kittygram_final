@@ -23,7 +23,6 @@ services:
       - static_volume_kg:/frontend_static
   gateway:
     image: hopedforluck/kittygram_gateway
-    env_file: .env
     volumes:
       - static_volume_kg:/staticfiles/
     ports:
