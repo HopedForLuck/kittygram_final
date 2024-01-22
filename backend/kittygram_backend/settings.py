@@ -57,8 +57,8 @@ WSGI_APPLICATION = 'kittygram_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('POSTGRES_DB', 'kittygram_db'),
-        'USER': os.getenv('POSTGRES_USER', 'user_kitty'),
+        'NAME': os.getenv('POSTGRES_DB', 'kittygram'),
+        'USER': os.getenv('POSTGRES_USER', 'kittygram'),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD', ''),
         'HOST': os.getenv('DB_HOST', ''),
         'PORT': os.getenv('DB_PORT', 5432)
