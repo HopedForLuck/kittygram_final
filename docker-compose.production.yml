@@ -1,32 +1,32 @@
 version: '3'
 
 volumes:
-  pg_data_kitgm:
-  static_kitgm:
+  pg_data:
+  static:
 
 services:
   db:
-    image: postgres:13
+    image: postgres:13.10
     env_file: .env
     volumes:
-      - pg_data_kitgm:/var/lib/postgresql/data
+      - pg_data:/var/lib/postgresql/data
   backend:
     image: hopedforluck/kittygram_backend
     env_file: .env
     depends_on:
       - db
     volumes:
-      - static_kitgm:/backend_static
+      - static:/backend_static
   frontend:
     image: hopedforluck/kittygram_frontend
     env_file: .env
     command: cp -r /app/build/. /frontend_static/
     volumes:
-      - static_kitgm:/frontend_static
+      - static:/frontend_static
   gateway:
     image: hopedforluck/kittygram_gateway
     env_file: .env
     volumes:
-      - static_kitgm:/staticfiles/
+      - static:/staticfiles/
     ports:
       - 9000:80
