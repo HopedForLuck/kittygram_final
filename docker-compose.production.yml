@@ -1,7 +1,7 @@
 version: '3'
 
 volumes:
-  pg_data_kittygram:
+  pg_data:
   static:
 
 services:
@@ -9,7 +9,7 @@ services:
     image: postgres:13.10
     env_file: .env
     volumes:
-      - pg_data_kittygram:/var/lib/postgresql/data
+      - pg_data:/var/lib/postgresql/data
     restart: on-failure
   backend:
     image: hopedforluck/kittygram_backend
