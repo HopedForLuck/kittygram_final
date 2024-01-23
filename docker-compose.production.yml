@@ -10,6 +10,7 @@ services:
     env_file: .env
     volumes:
       - pg_data_kittygram:/var/lib/postgresql/data
+    restart: on-failure
   backend:
     image: hopedforluck/kittygram_backend
     env_file: .env
@@ -17,6 +18,7 @@ services:
       - db
     volumes:
       - static:/backend_static
+    restart: on-failure
   frontend:
     image: hopedforluck/kittygram_frontend
     env_file: .env
@@ -30,3 +32,4 @@ services:
       - static:/staticfiles/
     ports:
       - 9000:80
+    restart: on-failure
